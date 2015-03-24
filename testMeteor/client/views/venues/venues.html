@@ -1,0 +1,21 @@
+<template name="Venues">
+    <table class="table table-striped table-hover ">
+        <thead>
+        <tr>
+
+            <th>Name</th>
+            <th>City</th>
+            <th>Street Address</th>
+            <th>Latitude</th>
+            <th>Longitude</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {{#each vanuesList}}
+            {{> Venue}}
+
+        {{/each}}
+        </tbody>
+    </table>
+</template>
