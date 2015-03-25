@@ -1,7 +1,7 @@
 
 
 ServiceConfiguration.configurations.upsert(
-    { service: "first" },
+    { service: "google" },
     {
         $set:
         {

@@ -1,10 +1,10 @@
 HomeController = RouteController.extend({
     waitOn: function() {
         return [
-            Meteor.subscribe('venues', "food")
+          ITestNamespace.ITEMSUB=  Meteor.subscribe('venues',Meteor.userId(),ITestNamespace.CATEGORY)
         ];
-    },
-    data: function() {
+    }
+    /*data: function() {
         if(Meteor.isClient){
             console.log(Venues.find().count());
             var map = new ITestNamespace.Map();
@@ -12,5 +12,5 @@ HomeController = RouteController.extend({
             map.setVenuesMarkers(Venues.find().fetch());
         }
         return Venues.find();
-    }
+    }*/
 });

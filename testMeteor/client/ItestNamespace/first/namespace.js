@@ -5,8 +5,12 @@
             longitude: 139.780083
         }
     },
-    MAP: null,
-    MARKER : null,
-    MARKERS :[]
+     MAP: null,
+     MARKER : null,
+     MARKERS :[],
+     CATEGORY:"food",
+     SEARCHVENUE:null,
+     ITEMSUB : null
+
 
 };

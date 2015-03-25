@@ -1,13 +1,19 @@
 ITestNamespace.VenuesParser = function () {
-    this.callback = function(data){
+    this.savecallback = function(data){
 
-        var arr = parse(data);
+        //parse data
+        var arrFromServer = parse(data);
+        var venues  =  savevenues(arrFromServer);
+        showVenuesForMap(venues);
 
-        Meteor.call('saveVenues', arr, function(error, result) {
-            // display the error to the user and abort
-            if (error)
-                alert('some Err');
-        });
+    },
+    this.changecallback = function(data){
+
+        //parse data
+        var arrFromServer = parse(data);
+
+        showVenuesForMap(arrFromServer);
+
     }
 
     var parse = function(data){
@@ -25,5 +31,28 @@ ITestNamespace.VenuesParser = function () {
             returnArr.push(venue);
         }
         return returnArr;
+        }
+
+    var savevenues = function(arrFromServer){
+        var arr = [];
+        //find searsh venues
+        for(var i=0;i<arrFromServer.length;i++){
+            if(arrFromServer[i].name.indexOf(ITestNamespace.SEARCHVENUE)> -1){
+                arr.push(arrFromServer[i]);
+            }
+        }
+        //save venues for server
+        Meteor.call('saveVenues', arr, function(error, result) {
+            // display the error to the user and abort
+            if (error)
+                alert('some Err');
+        });
+        return arr;
+    }
+    var showVenuesForMap = function(venues){
+        var map = new ITestNamespace.Map();
+        map.clearOverlays();
+        map.setVenuesMarkers(venues);
+
     }
 }

@@ -8,17 +8,31 @@
             </button>
             <a class="navbar-brand" href="javascript:void(0)">Test Meteor Project</a>
         </div>
-        <div class="navbar-collapse collapse navbar-responsive-collapse">
 
+        <div class="navbar-collapse collapse navbar-responsive-collapse">
+            {{#if currentUser}}
             <ul class="nav navbar-nav">
-                <li class="active"><a href="javascript:void(0)">Restourans</a>
-                </li>
-                <li><a href="javascript:void(0)">Parks</a>
+                <li class="dropdown">
+                    <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Category <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="javascript:void(0)" category="food" >Resrorans</a></li>
+                        <li><a href="javascript:void(0)" category="drinks">Drinks</a></li>
+                        <li><a href="javascript:void(0)" category="coffee">Coffee</a></li>
+
+                        <li><a href="javascript:void(0)" category="shops">Shops</a></li>
+                        <li><a href="javascript:void(0)" category="sights">Sights</a></li>
+                        <li><a href="javascript:void(0)" category="sights">Sights</a></li>
+                        <li><a href="javascript:void(0)" category="arts">Arts</a></li>
+                        <li><a href="javascript:void(0)" category="outdoors">Outdoors</a></li>
+                    </ul>
                 </li>
             </ul>
-            <form class="navbar-form navbar-left">
-                <input type="text" class="form-control col-lg-8" placeholder="Search">
+            <form class="navbar-form navbar-left searchform" >
+                <input type="text" class="form-control col-lg-8" id="searchinput" placeholder="Search">
             </form>
+
+
+        {{/if}}
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     {{> loginButtons}}

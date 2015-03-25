@@ -1,3 +1,6 @@
-Meteor.publish('venues', function(cat) {
-    return Venues.find({category: cat} );
+Meteor.publish('venues', function(userId,category) {
+    return Venues.find({
+        userId:userId,
+        category:category
+    });
 });
