@@ -8,9 +8,11 @@ Template.navbar.events({
         var venusParser = new ITestNamespace.VenuesParser();
 
         ajaxSender.getVenues(venusParser.savecallback, ITestNamespace.CATEGORY );
+        $('#loading').modal('show');
     },
     "click .dropdown-menu li a": function(event,template){
         event.preventDefault();
+        $('#loading').modal('show');
         var ajaxSender = new ITestNamespace.AjaxSender();
         var venusParser = new ITestNamespace.VenuesParser()
 
@@ -22,5 +24,9 @@ Template.navbar.events({
             Venues.remove({});
         }
         ITestNamespace.ITEMSUB = Meteor.subscribe('venues',Meteor.userId(),ITestNamespace.CATEGORY)
+
+    },
+    "click #csvbtn" : function(event,template){
+        $('#csvdialog').modal('show');
     }
 })

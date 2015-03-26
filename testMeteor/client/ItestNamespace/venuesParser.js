@@ -5,6 +5,7 @@ ITestNamespace.VenuesParser = function () {
         var arrFromServer = parse(data);
         var venues  =  savevenues(arrFromServer);
         showVenuesForMap(venues);
+        $('#loading').modal('hide');
 
     },
     this.changecallback = function(data){
@@ -13,6 +14,7 @@ ITestNamespace.VenuesParser = function () {
         var arrFromServer = parse(data);
 
         showVenuesForMap(arrFromServer);
+        $('#loading').modal('hide');
 
     }
 
